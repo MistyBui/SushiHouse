@@ -19,7 +19,7 @@ export default function CartItem({item,value}) {
             </div>
 
             <div className='col-10 mx-auto col-lg-2'>
-                <span className='d-lagre-none'>Price: €</span>
+                <span className='d-medium-none'>Price: €</span>
                 {price}
             </div>
 
