@@ -101,6 +101,7 @@ class ProductProvider extends Component {
         }
     };
 
+    //rm item when press icon
     removeItem = id => {
         var tempProducts = [...this.state.products];
         var tempCart = [...this.state.cart];
@@ -130,14 +131,16 @@ class ProductProvider extends Component {
     addTotal = () => {
         var subTotal = 0;
         this.state.cart.map(item =>(subTotal += item.total));
+        const roundSubTotal = parseFloat(subTotal.toFixed(2));
         const  tempTax = subTotal*0.24;
         const tax = parseFloat(tempTax.toFixed(2));
-        const total = subTotal + tax;
+        const total = roundSubTotal + tax;
+        const roundTotal = parseFloat(total.toFixed(2))
         this.setState(()=>{
             return {
-                cartSubTotal: subTotal,
+                cartSubTotal: roundSubTotal,
                 cartTax: tax,
-                cartTotal: total,
+                cartTotal: roundTotal,
             }
         })
     };
